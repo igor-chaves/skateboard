@@ -7,9 +7,11 @@
    text-decoration: none;
    list-style-type: none;
    font-family: "Roboto";
-   /* color: black; */
 }
 
+html {
+   scroll-behavior: smooth;
+}
 
 /* TOP MENU ---------------------------------------------------- TOP MENU */
 nav.expanded-menu-container {
