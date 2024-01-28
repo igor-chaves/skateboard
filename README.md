@@ -1,9 +1,4 @@
-# React + Vite (boilerplate)
+Live: https://skate-board.netlify.app/
 
-Currently, two official plugins are available:
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-## Code to update dependences:
-npm i --save-exact @dependence@version
+<img width="1425" alt="Screenshot 2024-01-28 at 15 54 30" src="https://github.com/igor-chaves/skateboard/assets/105141259/2fd915e7-ef8f-425b-a7a0-cc057f8a8cd2">
+<img width="714" alt="Screenshot 2024-01-28 at 15 52 10" src="https://github.com/igor-chaves/skateboard/assets/105141259/dc3b3986-467a-4eb5-9868-be8afc0e219d">
