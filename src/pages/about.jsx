@@ -1,4 +1,4 @@
-import { Header } from "./home"
+import { Footer, Header } from "./home"
 
 const About = () => {
   return (
@@ -9,6 +9,7 @@ const About = () => {
           <h1>About</h1>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

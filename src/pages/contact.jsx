@@ -1,4 +1,4 @@
-import { Header } from "./home"
+import { Footer, Header } from "./home"
 
 const Contact = () => {
   return (
@@ -9,6 +9,7 @@ const Contact = () => {
           <h1>Contact</h1>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { Header } from "./home"
+import { Footer, Header } from "./home"
 
 const NotFound = () => {
   return (
@@ -9,6 +9,7 @@ const NotFound = () => {
           <h1>NotFound</h1>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
