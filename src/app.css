@@ -121,31 +121,23 @@ header {
    justify-content: center;
 }
 
-.container-header {
-   margin: 0 30px;
-   max-width: 1200px;
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-}
-
-.container-header .logo {
-   font-size: 2rem;
-}
-
-
 /* HERO ---------------------------------------------------- HERO */
 .hero {
    display: flex;
    align-items: center;
    flex: 1;
+   z-index: 1;
+   position: relative;
 }
 
 .hero .container-hero {
    display: flex;
    flex-direction: column;
    gap: 10px;
-   flex: 1;
+   position: absolute; 
+   top: -300px;
+   left: 5%; 
+   color: white;
 }
 
 .hero .container-hero > div {

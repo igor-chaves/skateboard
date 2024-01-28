@@ -9,11 +9,11 @@ const Layout = () => {
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
 
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   )
 }
 

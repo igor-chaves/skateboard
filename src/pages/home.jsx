@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
@@ -12,10 +13,11 @@ const Home = () => {
             <h1>We sell skateboards and shoes</h1>
             <p>you stay in fashion while go skateboarding</p>
             <div>
-              <a href="#">BUY NOW</a>
+              <Link to="/">BUY NOW</Link>
             </div>
           </div>
         </div>
+
         {/* <!-- DESTAQUES --> */}
         <section className="featured">
           <div className="container">
