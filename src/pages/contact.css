@@ -7,10 +7,9 @@
 .container {
   z-index: 1;
   position: relative;
-  margin: 0 30px;
 }
 
-.container form {
+.container .form-contact {
   background-color: rgba(255, 255, 255, 0.717);
   border-radius: 10px;
   max-width: 450px;
@@ -59,7 +58,7 @@
   color: red;
 }
 
-button {
+button.send-contact {
   margin: 1rem 4rem 2rem;
   padding: 1rem;
   max-width: 200px;

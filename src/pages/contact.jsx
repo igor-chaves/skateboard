@@ -30,7 +30,7 @@ const Contact = () => {
       <main>
         <section>
           <div className="container flex">
-            <form ref={formRef} onSubmit={handleForm}>
+            <form className="form-contact" ref={formRef} onSubmit={handleForm}>
               <div className="form-top">
                 <h1>CONTACT</h1>
               </div>
@@ -48,7 +48,7 @@ const Contact = () => {
               </div>
 
               <div className="send-btn flex">
-                <button type="submit">Send</button>
+                <button className="send-contact" type="submit">Send</button>
               </div>
             </form>
           </div>
