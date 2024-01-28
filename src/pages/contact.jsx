@@ -1,6 +1,5 @@
 import { useRef } from "react"
 import { formSchema } from "./contactValidation"
-import { Footer, Header } from "./home"
 import "./contact.css"
 
 const Contact = () => {
@@ -28,7 +27,6 @@ const Contact = () => {
 
   return (
     <>
-      <Header />
       <main>
         <section>
           <div className="container flex">
@@ -56,7 +54,6 @@ const Contact = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

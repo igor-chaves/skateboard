@@ -1,9 +1,6 @@
-import { Footer, Header } from "./home"
-
 const About = () => {
   return (
     <>
-      <Header />
       <main>
         <section>
           <h1>About us</h1>
@@ -21,7 +18,6 @@ const About = () => {
           <p>Thank you for being part of our community. Let's skate together!</p>
         </section>
       </main>
-      <Footer />
     </>
   )
 }
