@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHouse, faPhone } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,29 +16,29 @@ const Footer = () => {
           <div className="card">
             <h2>PRODUCTS</h2>
             <ul>
-              <li><a href="#">Shirts</a></li>
-              <li><a href="#">Shoes</a></li>
-              <li><a href="#">Shapes</a></li>
-              <li><a href="#">Caps</a></li>
+              <li><Link to="#">Shirts</Link></li>
+              <li><Link to="#">Shoes</Link></li>
+              <li><Link to="#">Shapes</Link></li>
+              <li><Link to="#">Caps</Link></li>
             </ul>
           </div>
 
           <div className="card">
             <h2>USEFUL LINKS</h2>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Favorites</a></li>
-              <li><a href="#">Cart</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/cart">Cart</Link></li>
             </ul>
           </div>
 
           <div className="card contact">
             <h2>CONTACT</h2>
             <ul>
-              <li><FontAwesomeIcon icon={faHouse} /><a href="#">Tokyo, Shibuya-ku, 2-1-2</a></li>
-              <li><FontAwesomeIcon icon={faEnvelope} /><a href="#">contact@skateboard.co.jp</a></li>
-              <li><FontAwesomeIcon icon={faPhone} /><a href="#">090-1234-5678</a></li>
+              <li><FontAwesomeIcon icon={faHouse} /><Link to="#">Tokyo, Shibuya-ku, 2-1-2</Link></li>
+              <li><FontAwesomeIcon icon={faEnvelope} /><Link to="#">contact@skateboard.co.jp</Link></li>
+              <li><FontAwesomeIcon icon={faPhone} /><Link to="">090-1234-5678</Link></li>
             </ul>
           </div>
         </div>
