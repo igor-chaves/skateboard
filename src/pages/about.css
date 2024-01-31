@@ -1,34 +1,34 @@
 .main-about {
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
+  
+  background-color: lightgray;
   padding: 15px 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: lightgray ;
 }
 
 h2.title-about {
-  margin-top: 3rem;
-  padding: .5rem;
-  background-color: rgb(91, 106, 120);
-  color: lightgray;
-  max-width: 800px;
-  width: 100%;
   display: flex;
   justify-content: center;
+  
+  background-color: rgb(91, 106, 120);
   border-bottom: 2px solid black;
+  color: lightgray;
+  margin-top: 3rem;
+  padding: .5rem;
+  max-width: 800px;
+  width: 100%;
 }
 
 p.text-about {
-  max-width: 800px;
   background-color: lightslategray;
-  padding: .5rem;
   line-height: 150%;
+  max-width: 800px;
+  padding: 1rem;
 }
 
 h3.thank-you {
   padding-top: 3rem;
+  text-align: center;
 }
