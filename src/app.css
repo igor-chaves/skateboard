@@ -407,9 +407,11 @@ a {
 }
 
 .newsletter .container input {
+   height: 90%;
    max-width: 450px;
    width: 100%;
    padding: 1rem;
+   font-size: large;
 }
 
 .newsletter .container form {
@@ -420,10 +422,9 @@ a {
 }
 
 .newsletter .container button {
-   padding: 1rem 2rem;
+   padding: 1rem;
    background-color: lightgray;
-   border: 2px solid lightgray;
-   color: black;
+   border: 2px solid black;
    font-weight: bold;
    width: 40%;
 
