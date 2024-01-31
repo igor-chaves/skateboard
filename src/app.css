@@ -7,6 +7,8 @@
    text-decoration: none;
    list-style-type: none;
    font-family: "Roboto";
+   /* this webkit makes iPhone users experience look the same as in a Desktop */
+   -webkit-appearance: none;
 }
 
 html {
