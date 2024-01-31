@@ -33,10 +33,10 @@ const Header = () => {
 
       <nav className="hamburger-menu-container">
         <ul className={`hamburger-menu ${showMenu ? "show" : "hide"}`}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/cart">Cart</Link></li>
+          <li><Link onClick={handleMenu} to="/">Home</Link></li>
+          <li><Link onClick={handleMenu} to="/about">About</Link></li>
+          <li><Link onClick={handleMenu} to="/contact">Contact</Link></li>
+          <li><Link onClick={handleMenu} to="/cart">Cart</Link></li>
         </ul>
       </nav>
     </header>
