@@ -1,32 +1,35 @@
-import { useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import * as yup from "yup"
 import "./contact.css"
 
 const Contact = () => {
-  //save current state of the form as null
-  const formRef = useRef(null)
-
+  // get current URL rote
+  const navigate = useNavigate()
+  // very basic validation
   const handleForm = async e => {
-    // very basic validation
     e.preventDefault()
 
+    // creates an array with users inputs
     const formData = {
       name: e.target[0].value,
       email: e.target[1].value,
       message: e.target[2].value
     }
 
+    // predetermine how is the validation
     const formSchema = yup.object().shape({
       name: yup.string().required(),
       email: yup.string().email().required(),
       message: yup.string().max(100).required(),
     })
 
+    // check if formData is valid according to formSchema rules
     const isValid = await formSchema.isValid(formData)
 
     if (isValid) {
       alert("We received your message and will be in touch soon.")
-      formRef.current.reset()
+      // change URL to / rote, the homepage
+      navigate("/")
     } else {
       alert("Please fill all the fields correctly")
     }
@@ -36,7 +39,7 @@ const Contact = () => {
     <main>
       <section>
         <div className="container flex">
-          <form className="form-contact" ref={formRef} onSubmit={handleForm}>
+          <form className="form-contact" onSubmit={handleForm}>
             <div className="form-top">
               <h1>CONTACT</h1>
             </div>
