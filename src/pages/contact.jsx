@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { formSchema } from "./contactValidation"
+import * as yup from "yup"
 import "./contact.css"
 
 const Contact = () => {
@@ -15,6 +15,12 @@ const Contact = () => {
       email: e.target[1].value,
       message: e.target[2].value
     }
+
+    const formSchema = yup.object().shape({
+      name: yup.string().required(),
+      email: yup.string().email().required(),
+      message: yup.string().max(100).required(),
+    })
 
     const isValid = await formSchema.isValid(formData)
 
