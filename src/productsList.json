@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "productName": "deck 01",
+    "price": 40
+  },
+  {
+    "id": 2,
+    "productName": "deck 02",
+    "price": 35
+  },
+  {
+    "id": 3,
+    "productName": "deck 03",
+    "price": 50
+  },
+  {
+    "id": 4,
+    "productName": "deck 04",
+    "price": 45
+  },
+  {
+    "id": 5,
+    "productName": "deck 05",
+    "price": 42
+  },
+  {
+    "id": 6,
+    "productName": "deck 06",
+    "price": 38
+  },
+  {
+    "id": 7,
+    "productName": "deck 07",
+    "price": 47
+  },
+  {
+    "id": 8,
+    "productName": "deck 08",
+    "price": 41
+  }
+]
