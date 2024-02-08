@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
-import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
+import { products } from "../productsList.json"
 
 const Home = () => {
   return (
@@ -72,70 +73,16 @@ const Home = () => {
           <p>Look at the latest collection that we offer</p>
 
           <div className="container">
-            <div className="card" id="product-1">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/DGK-Clan-Blossom-Crew-8.38%22-Skateboard-Deck-_377513-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
+            {products.map(({ id, name, price }) =>
+              <div className="card" key={id}>
+                <img src={`./deck${id}.jpg`} alt="product image" />
+                <h3>{name}</h3>
+                <p>${price}.00</p>
+                <div className="btns">
+                  <Link to="cart">Add to cart</Link>
+                </div>
               </div>
-            </div>
-            <div className="card" id="product-2">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Element-Zwijsen-Earth-Rev-8.5%22-Skateboard-Deck-_372484-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-3">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Sk8mafia-Surrey-Hiya-8.25%22-Skateboard-Deck-_365470-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-4">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Primitive-Nuevo-Script-Core-8.38%22-Skateboard-Deck-_373411-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-5">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Baker-White-Brand-Logo-8.25%22-Skateboard-Deck-_356011-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-6">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Element-Section-8.25%22-Skateboard-Deck--_372491-back-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-7">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Element-Blazin-Red-7.75%22-Skateboard-Complete-_372318-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
-            <div className="card" id="product-8">
-              <img src="https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Element-Section-8.25%22-Skateboard-Deck--_372491-front-US.jpg" alt="product image" />
-              <h3>Skateborder Vans</h3>
-              <p>$40.00</p>
-              <div className="btns">
-                <a href="#">Add to cart</a>
-              </div>
-            </div>
+            )}
           </div>
         </section>
 
