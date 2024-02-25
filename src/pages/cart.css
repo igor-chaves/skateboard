@@ -14,6 +14,7 @@
   border: 1px solid #E5E7EB;
   border-radius: 0.375rem;
   border-color: #E5E7EB;
+  padding: .5rem;
 }
 
 .product-container {
@@ -41,50 +42,12 @@
   object-fit: cover;
 }
 
-.description {
-  display: grid;
-  gap: 1.5rem;
-}
-.description h1 {
-  font-size: 1rem;
-  font-weight: 600;
-}
-.description p {
-  font-size: 0.875rem;
-}
-.description p {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-  cursor: not-allowed;
-  opacity: 0.7;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-.description .bellow-label {
-  width: 4rem;
-  text-align: center;
-}
-
-.quantity-container {
-  display: flex;
-  /* align-items: center; */
-  gap: 4px;
-}
-
 .price {
   font-weight: 600;
   font-size: 0.875rem;
 }
 
-.remove-btn {
+.checkout-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -103,12 +66,12 @@
   padding-right: 0.75rem;
 }
 
-.remove-btn:hover {
+.checkout-btn:hover {
   background-color: #E2E8F0;
   color: #3182CE;
 }
 
-.remove-btn:disabled {
+.checkout-btn:disabled {
   pointer-events: none;
   opacity: 0.5;
 }
@@ -142,19 +105,99 @@
 }
 
 
+/* CSS DO CHATGPT */
+.product-card {
+  width: 100%;
+  padding: .5rem;
+}
+
+.product-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 0.5rem;
+}
+
+.product-image img {
+  width: 100px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.product-infos {
+  margin-right: auto;
+}
+.product-details {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.product-info {
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.remove-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  background-color: #edf2f7;
+  height: 2.25rem;
+  border-radius: 0.375rem;
+  padding: 0 0.75rem;
+  transition: background-color 0.15s ease;
+}
+
+.remove-icon {
+  width: 1.5rem;
+}
+
+.remove-button:hover {
+  background-color: #e2e8f0;
+}
+
+.remove-button:hover {
+  color: #2d3748;
+}
+
+.remove-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.remove-button:active {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.remove-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+/* CSS DO CHATGPT */
+
+
 @media (min-width: 768px) {
   .main-container {
     flex-direction: row;
   }
-  .abc {
-    grid-template-columns: 1fr 150px 100px 100px 100px;
-  }
+
 }
 
 @media (min-width: 640px) {
-  .abc {
-    grid-template-columns: 1fr 100px 100px 100px 100px;
-  }
   .right-column {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;

@@ -4,8 +4,8 @@ import { Footer } from "../components/footer"
 import { useEffect } from "react"
 
 const Layout = () => {
-  // Page scrolls to top whenever URL (pathname) changes
   const { pathname } = useLocation()
+  // Page scrolls to top whenever URL (pathname) changes
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
 
   return (

@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { products } from "../productsList.json"
+import localforage from "localforage"
 
 const Home = () => {
+
+  const addToLocalForage = async (id, name, price) => {
+    // gets items from localforage first, if it's empty, return []
+    const cartItems = await localforage.getItem('cartItems') || []
+    // for every new interaction push a new item
+    // verify if the same item was pushed, if so add +1 to a property called "quantity"
+    cartItems.push({ "id": id, "product": name, "price": price })
+    await localforage.setItem('cartItems', cartItems)
+  }
+
   return (
     <>
       <main>
@@ -49,7 +60,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* <!-- sumer/winter etc  --> */}
+        {/* <!-- summer/winter etc  --> */}
         <section className="collections">
           <div className="container">
             <div className="image">
@@ -78,8 +89,13 @@ const Home = () => {
                 <img src={`./deck${id}.jpg`} alt="product image" />
                 <h3>{name}</h3>
                 <p>${price}.00</p>
+                {/* jogar essas infos para o local forage */}
+                {/* mostrar o numero de produtos do cart no icone de cart na page home */}
+                {/* ao abrir o cart, verificar se tem algo no local forage e gerar dinamicamente os cards baseado nisso */}
+                {/* conferir a aula abaixo para fazer o resto de forma correta */}
+                {/* https://www.youtube.com/watch?v=pdyAEHi5ei8 */}
                 <div className="btns">
-                  <Link to="cart">Add to cart</Link>
+                  <Link to="cart" onClick={() => addToLocalForage(id, name, price)}> Add to cart</Link>
                 </div>
               </div>
             )}
@@ -171,7 +187,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-      </main>
+      </main >
     </>
   )
 }
