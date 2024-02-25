@@ -47,7 +47,7 @@
   font-size: 0.875rem;
 }
 
-.checkout-btn {
+.checkout-btn, .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -66,14 +66,9 @@
   padding-right: 0.75rem;
 }
 
-.checkout-btn:hover {
-  background-color: #E2E8F0;
+.checkout-btn:hover, .btn:hover {
   color: #3182CE;
-}
-
-.checkout-btn:disabled {
-  pointer-events: none;
-  opacity: 0.5;
+  cursor: pointer;
 }
 
 .right-column {
@@ -104,8 +99,6 @@
   padding-top: 1rem;
 }
 
-
-/* CSS DO CHATGPT */
 .product-card {
   width: 100%;
   padding: .5rem;
@@ -147,6 +140,7 @@
 }
 
 .remove-button {
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -166,29 +160,17 @@
 }
 
 .remove-button:hover {
-  background-color: #e2e8f0;
+  color: #ce4331;
+  cursor: pointer;
 }
 
-.remove-button:hover {
-  color: #2d3748;
-}
+.empty-cart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-.remove-button:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  margin: 1rem;
 }
-
-.remove-button:active {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-}
-
-.remove-button:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-/* CSS DO CHATGPT */
-
 
 @media (min-width: 768px) {
   .main-container {
