@@ -3,26 +3,28 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
-  background-color: lightgray;
   padding: 15px 30px;
+  background-color: #f9fafb;
 }
 
 h2.title-about {
   display: flex;
   justify-content: center;
-  
-  background-color: rgb(91, 106, 120);
+
+  background-color: #ffcc80;
   border-bottom: 2px solid black;
-  color: lightgray;
   margin-top: 3rem;
   padding: .5rem;
   max-width: 800px;
   width: 100%;
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 p.text-about {
-  background-color: lightslategray;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
   line-height: 150%;
   max-width: 800px;
   padding: 1rem;

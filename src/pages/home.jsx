@@ -21,7 +21,7 @@ const Home = () => {
       <main>
         {/* <!-- HERO --> */}
         <div className="hero">
-          <img src="./public/banner.jpg" alt="" />
+          <img src="banner.jpg" alt="" />
           <div className="container-hero">
             <p>Shirts</p>
             <p>Sneakers</p>
@@ -175,7 +175,6 @@ const Home = () => {
         <section className="social-network">
           <div className="container">
             <p>Get connected with us on our social networks</p>
-
             <div>
               <ul className="icons">
                 <li><a href="#"><FontAwesomeIcon icon={faFacebookF} /></a></li>

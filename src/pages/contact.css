@@ -1,11 +1,12 @@
 .contactMain {
-  margin: 3rem auto;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #f9fafb;
 }
 
-section {
+.contactMain section {
+  margin: 6rem auto;
   width: 100%;
 }
 
@@ -16,7 +17,8 @@ section {
 }
 
 .container .form-contact {
-  border: 1px solid black;
+  border: 1px solid #e5e7eb;
+  background-color: white ;
   border-radius: 10px;
   max-width: 450px;
   width: 80%;
@@ -27,21 +29,16 @@ section {
   text-align: center;
 }
 .form-top {
-  background-color: #ff9800;
+  background-color: #ffcc80;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 .form-top h1 {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #e5e7eb;
   padding: 1rem;
 }
 
-.form-mid {
-  background-color: #ececec;
-}
-
 .form-bottom {
-  background-color: #ececec;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -58,7 +55,8 @@ section {
 .form-mid textarea {
   padding: 1rem;
   border: none;
-  background-color: rgba(119, 136, 153, 0.293);
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 5px;
   outline-width: 0;
   font-size: 1.1rem;
@@ -68,19 +66,19 @@ section {
   resize: none;
 }
 
-.container form .error-msg-container {
-  height: 1rem;
-  color: red;
-}
-
 button.send-contact {
+  cursor: pointer;
   margin: 1rem 4rem 2rem;
   padding: 1rem;
   max-width: 200px;
   width: 100%;
   font-size: large;
   outline-color: black;
-  background-color: lightgray;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  border: 1px solid black;
+}
+
+button.send-contact:hover {
+  color: #ff9800;
 }
