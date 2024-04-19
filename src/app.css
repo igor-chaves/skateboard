@@ -375,7 +375,7 @@ header {
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
   padding: 0.75rem 1.25rem;
-  font-weight: bold;
+  font-size: 1rem;
   margin: 10px 0 20px 0;
 }
 .new-arrivals .btns:hover {
@@ -629,7 +629,7 @@ aside .copyright {
 
   /* HERO */
   .hero .container-hero p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: left;
   }
   .newsletter .container div {
