@@ -1,6 +1,5 @@
 .main-container {
   margin: 2rem;
-  /* padding: 6px 4px; */
   gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -47,7 +46,7 @@
 }
 
 .checkout-btn,
-.btn {
+.check-products-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -67,8 +66,8 @@
 }
 
 .checkout-btn:hover,
-.btn:hover {
-  color: #3182ce;
+.check-products-btn:hover {
+  color: #ff9800;
   cursor: pointer;
 }
 
@@ -161,7 +160,7 @@
 }
 
 .remove-button:hover {
-  color: #ce4331;
+  color: #ff9800;
   cursor: pointer;
 }
 

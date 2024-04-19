@@ -36,12 +36,12 @@ const Contact = () => {
   }
 
   return (
-    <main>
+    <main className="contactMain">
       <section>
         <div className="container flex">
           <form className="form-contact" onSubmit={handleForm}>
             <div className="form-top">
-              <h1>CONTACT</h1>
+              <h1>GET IN TOUCH</h1>
             </div>
 
             <div id="contact-form-inputs" className="form-mid">
@@ -56,7 +56,7 @@ const Contact = () => {
               </textarea>
             </div>
 
-            <div className="send-btn flex">
+            <div className="form-bottom flex">
               <button className="send-contact" type="submit">Send</button>
             </div>
           </form>

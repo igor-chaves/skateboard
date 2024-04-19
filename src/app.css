@@ -16,6 +16,7 @@ html {
 }
 
 .first-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -466,6 +467,7 @@ footer {
 
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 footer .container {
@@ -531,6 +533,9 @@ aside .copyright {
 
 /* MEDIA QUERIES ---------------------------------------------------- MEDIA QUERIES */
 /* HEADER */
+header {
+  margin-bottom: auto;
+}
 .headerContainer {
   padding: 1rem 2rem;
   display: flex;
