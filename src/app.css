@@ -22,7 +22,7 @@ html {
 }
 
 /* TOP MENU ---------------------------------------------------- TOP MENU */
-nav.expanded-menu-container {
+/* nav.expanded-menu-container {
   background-color: white;
   border-bottom: 1px solid black;
   width: 1200px;
@@ -38,50 +38,7 @@ nav.expanded-menu-container {
   top: 0;
   left: 0;
   width: 100%;
-}
-
-nav h1.logo {
-  font-size: 2rem;
-}
-
-nav h1 span {
-  color: lightslategray;
-  font-size: 3.5rem;
-  /* line bellow prevent to create unnecessary big spaces around "skateboard." */
-  line-height: 0;
-}
-
-nav ul.links {
-  display: flex;
-  gap: 3rem;
-}
-
-nav ul.links a {
-  color: black;
-  font-size: large;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  padding: 5px 0;
-}
-
-nav ul.links a:hover {
-  border-bottom: 2px solid lightslategray;
-}
-
-nav .menu-icon,
-nav .menu-close-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-nav .menu-icon {
-  display: none;
-}
-
-nav .menu-icon:hover,
-nav .menu-close-icon:hover {
-  color: lightslategray;
-}
+} */
 
 /* HAMBURGER MENU ---------------------------------------------------- HAMBURGER MENU */
 .hamburger-menu-container {
@@ -119,7 +76,7 @@ nav .menu-close-icon:hover {
 }
 
 /* HEADER ---------------------------------------------------- HEADER */
-header {
+/* header {
   background-image: url(https://images.unsplash.com/photo-1536318431364-5cc762cfc8ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80);
   background-repeat: no-repeat;
   background-position: center;
@@ -127,9 +84,8 @@ header {
   min-height: 600px;
   display: flex;
   justify-content: center;
-}
-
-.item-count {
+} */
+/* .item-count {
   position: absolute;
   top: 15px;
   right: 10px;
@@ -142,7 +98,7 @@ header {
   font-size: 12px;
   line-height: 20px;
   font-weight: bold;
-}
+} */
 
 /* HERO ---------------------------------------------------- HERO */
 .hero {
@@ -574,31 +530,91 @@ aside .copyright {
 }
 
 /* MEDIA QUERIES ---------------------------------------------------- MEDIA QUERIES */
+/* HEADER */
+.headerContainer {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #00c300; */
+}
+.logoIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  /* padding: 1rem; */
+  /* background-color: #1877f2; */
+}
+.logoIconContainer p {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.logoIconContainer span {
+  color: #ff9800;
+}
+.openCloseIcon {
+  display: none;
+  cursor: pointer;
+}
+
+.menuNav ul {
+  /* padding: 1rem; */
+  gap: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuNav ul li {
+  color: black;
+  font-size: large;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  padding: 5px 0;
+}
+.menuNav ul li:hover {
+  border-bottom: 2px solid #ff9800;
+}
+
 @media (max-width: 690px) {
   /* HEADER */
-  nav.expanded-menu-container .cartIcon {
+  .headerContainer {
+    flex-direction: column;
+  }
+  .openCloseIcon {
+    display: block;
+  }
+  .menuNav {
+    display: none;
+    margin: 1rem;
+  }
+  .showMenu {
+    display: block;
+  }
+
+  /* nav.expanded-menu-container .cartIcon {
     margin-left: 11rem;
     font-size: 1.2rem;
   }
   nav.expanded-menu-container .item-count {
     right: 65px;
-  }
+  } */
 
   /* before HEADER */
-  nav ul.links {
+  /* nav ul.links {
     display: none;
   }
   nav .menu-icon {
     display: block;
-  }
+  } */
 
   /* HEADER */
-  .container-hero h1 {
-    font-size: 1.5rem;
-  }
+  /*
   .container-links-menu.active {
     display: block;
-  }
+  } */
 
   /* COLLECTIONS */
   .collections .container {

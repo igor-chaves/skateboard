@@ -9,7 +9,7 @@ const Footer = () => {
       <footer>
         <div className="container">
           <div className="card">
-            <h2>SKATEBOARD<span>.</span></h2>
+            <h2>SKATEBOARD<span>_</span></h2>
             <p>Your trusted online store. Quality, speed, and exceptional service. Free shipping inside Japan only.</p>
           </div>
 
