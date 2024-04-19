@@ -546,6 +546,10 @@ footer .container .card ul {
   line-height: 2;
 }
 
+footer .container .card:last-child li > svg {
+  margin-right: 10px;
+}
+
 footer .container .card p {
   line-height: 1.25;
 }
@@ -558,11 +562,7 @@ footer .container .card h2 {
   margin-bottom: 10px;
 }
 
-footer .container .card.contact li a {
-  margin-left: 10px;
-}
-
-footer .container .card.contact li i {
+footer .container .contact li > svg {
   color: rgb(223, 223, 223);
 }
 

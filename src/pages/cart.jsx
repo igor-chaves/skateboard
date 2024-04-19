@@ -14,6 +14,17 @@ const Cart = () => {
     items ? setCart(items) : console.log("carrinho vazio")
   }
 
+  const deleteItems = async (id) => {
+    const items = await localforage.getItem("cartItems")
+    const updatedItems = items.filter(item => item.id !== id)
+    await localforage.setItem('cartItems', updatedItems)
+    setCart(updatedItems)
+  }
+
+  const subTotalSum = () => cart.reduce((acc, currentItem) => acc + currentItem.price, 0)
+  const totalSum = (taxes) => cart.reduce((acc, currentItem) => acc + currentItem.price, taxes)
+
+
   return (
     <div className="main-container">
       {/* list of products column */}
@@ -40,12 +51,8 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <button className="remove-button">
-                  <svg className="remove-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                  </svg>
+                <button className="remove-button" onClick={() => deleteItems(id)}>
+                  <img src="./public/deleteIcon.svg" alt="delete button" />
                 </button>
               </div>
             </div>
@@ -64,11 +71,12 @@ const Cart = () => {
         <div className="right-column">
           <div className="title">
             <span>Subtotal</span>
-            <span>$148</span>
+            {/* <span>$148</span> */}
+            <span>${subTotalSum()}</span>
           </div>
           <div className="title">
             <span>Taxes</span>
-            <span>$14.80</span>
+            <span>$15</span>
           </div>
           <div className="title">
             <span>Shipping</span>
@@ -76,7 +84,7 @@ const Cart = () => {
           </div>
           <div className="total">
             <span>Total</span>
-            <span>$162.80</span>
+            <span>${totalSum(15)}</span>
           </div>
           <button className="checkout-btn">Proceed to checkout</button>
         </div>

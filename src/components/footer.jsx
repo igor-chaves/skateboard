@@ -36,9 +36,9 @@ const Footer = () => {
           <div className="card contact">
             <h2>CONTACT</h2>
             <ul>
-              <li><FontAwesomeIcon icon={faHouse} /><Link to="#">Tokyo, Shibuya-ku, 2-1-2</Link></li>
-              <li><FontAwesomeIcon icon={faEnvelope} /><Link to="#">contact@skateboard.co.jp</Link></li>
-              <li><FontAwesomeIcon icon={faPhone} /><Link to="">090-1234-5678</Link></li>
+              <li><FontAwesomeIcon icon={faHouse} />Tokyo, Shibuya-ku, 2-1-2</li>
+              <li><FontAwesomeIcon icon={faEnvelope} />contact@skateboard.co.jp</li>
+              <li><FontAwesomeIcon icon={faPhone} />090-1234-5678</li>
             </ul>
           </div>
         </div>
