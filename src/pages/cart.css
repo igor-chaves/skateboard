@@ -46,6 +46,7 @@
 
 .checkout-btn,
 .check-products-btn {
+  color: black;
   display: inline-flex;
   align-items: center;
   justify-content: center;

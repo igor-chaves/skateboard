@@ -556,7 +556,6 @@ aside .copyright {
 }
 
 /* MEDIA QUERIES ---------------------------------------------------- MEDIA QUERIES */
-
 @media (max-width: 769px) {
   /* HERO */
   .hero .container-hero p {
@@ -589,6 +588,9 @@ aside .copyright {
   .showMenu {
     display: block;
   }
+  .logoIconContainer p {
+    font-size: 2rem;
+  }
 
   /* COLLECTIONS */
   .collections .container {
@@ -620,6 +622,11 @@ aside .copyright {
 }
 
 @media (max-width: 460px) {
+  /* HEADER */
+  .logoIconContainer p {
+    font-size: 1.5rem;
+  }
+
   /* HERO */
   .hero .container-hero p {
     font-size: 1.5rem;

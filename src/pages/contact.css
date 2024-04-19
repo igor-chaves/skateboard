@@ -18,7 +18,7 @@
 
 .container .form-contact {
   border: 1px solid #e5e7eb;
-  background-color: white ;
+  background-color: white;
   border-radius: 10px;
   max-width: 450px;
   width: 80%;
@@ -67,6 +67,7 @@
 }
 
 button.send-contact {
+  color: black;
   cursor: pointer;
   margin: 1rem 4rem 2rem;
   padding: 1rem;
