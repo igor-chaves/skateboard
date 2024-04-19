@@ -21,12 +21,11 @@ const Home = () => {
       <main>
         {/* <!-- HERO --> */}
         <div className="hero">
+          <img src="./public/banner.jpg" alt="" />
           <div className="container-hero">
-            <h1>We sell skateboards and shoes</h1>
-            <p>you stay in fashion while go skateboarding</p>
-            <div>
-              <Link to="/">BUY NOW</Link>
-            </div>
+            <p>Shirts</p>
+            <p>Sneakers</p>
+            <p>Skateboarding</p>
           </div>
         </div>
 

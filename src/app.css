@@ -42,7 +42,7 @@ html {
 } */
 
 /* HAMBURGER MENU ---------------------------------------------------- HAMBURGER MENU */
-.hamburger-menu-container {
+/* .hamburger-menu-container {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -74,63 +74,93 @@ html {
 }
 .hide {
   display: none;
-}
+} */
 
 /* HEADER ---------------------------------------------------- HEADER */
-/* header {
-  background-image: url(https://images.unsplash.com/photo-1536318431364-5cc762cfc8ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  min-height: 600px;
+/* HEADER */
+header {
+  margin-bottom: auto;
+}
+
+.headerContainer {
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
-} */
-/* .item-count {
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 20px;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #00c300; */
+}
+
+.logoIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  /* padding: 1rem; */
+  /* background-color: #1877f2; */
+}
+
+.logoIconContainer p {
+  font-size: 2.5rem;
   font-weight: bold;
-} */
+}
+
+.logoIconContainer span {
+  color: #ff9800;
+}
+
+.openCloseIcon {
+  display: none;
+  cursor: pointer;
+}
+
+.menuNav ul {
+  gap: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuNav ul li {
+  color: black;
+  font-size: large;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  padding: 5px 0;
+}
+
+.menuNav ul li:hover {
+  border-bottom: 2px solid #ff9800;
+}
 
 /* HERO ---------------------------------------------------- HERO */
 .hero {
   display: flex;
-  align-items: center;
-  flex: 1;
-  z-index: 1;
   position: relative;
 }
 
+.hero img {
+  max-height: 50vh;
+  width: 100%;
+  object-fit: cover;
+}
+
 .hero .container-hero {
+  position: absolute;
+  padding: 2rem;
+  height: 100%;
+  width: 40vw;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  position: absolute;
-  top: -300px;
-  left: 5%;
-  color: white;
+  background-color: rgba(255, 152, 0, 0.75);
+  text-align: end;
 }
 
-.hero .container-hero > div {
-  display: flex;
-}
-
-.hero .container-hero a {
-  margin-top: 10px;
-  padding: 1rem 2rem;
-  background-color: lightgray;
-  border: 2px solid;
-  color: black;
+.hero .container-hero p {
+  font-size: 3.5rem;
   font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* FEATURED ---------------------------------------------------- FEATURED */
@@ -532,55 +562,13 @@ aside .copyright {
 }
 
 /* MEDIA QUERIES ---------------------------------------------------- MEDIA QUERIES */
-/* HEADER */
-header {
-  margin-bottom: auto;
-}
-.headerContainer {
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* background-color: #00c300; */
-}
-.logoIconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  width: 100%;
-  /* padding: 1rem; */
-  /* background-color: #1877f2; */
-}
-.logoIconContainer p {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.logoIconContainer span {
-  color: #ff9800;
-}
-.openCloseIcon {
-  display: none;
-  cursor: pointer;
-}
-
-.menuNav ul {
-  /* padding: 1rem; */
-  gap: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.menuNav ul li {
-  color: black;
-  font-size: large;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  padding: 5px 0;
-}
-.menuNav ul li:hover {
-  border-bottom: 2px solid #ff9800;
+@media (max-width: 769px) {
+  /* HERO */
+  .hero .container-hero p {
+    font-size: 2.5rem;
+    text-align: left;
+  }
 }
 
 @media (max-width: 690px) {
@@ -598,28 +586,6 @@ header {
   .showMenu {
     display: block;
   }
-
-  /* nav.expanded-menu-container .cartIcon {
-    margin-left: 11rem;
-    font-size: 1.2rem;
-  }
-  nav.expanded-menu-container .item-count {
-    right: 65px;
-  } */
-
-  /* before HEADER */
-  /* nav ul.links {
-    display: none;
-  }
-  nav .menu-icon {
-    display: block;
-  } */
-
-  /* HEADER */
-  /*
-  .container-links-menu.active {
-    display: block;
-  } */
 
   /* COLLECTIONS */
   .collections .container {
@@ -665,6 +631,11 @@ header {
 }
 
 @media (max-width: 460px) {
+  /* HERO */
+  .hero .container-hero p {
+    font-size: 1.5rem;
+    text-align: left;
+  }
   .newsletter .container div {
     flex-wrap: wrap;
   }
