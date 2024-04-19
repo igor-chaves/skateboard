@@ -28,11 +28,11 @@ nav.expanded-menu-container {
    width: 1200px;
    height: 85px;
    padding: 15px 30px;
-
+   
    display: flex;
    align-items: center;
    justify-content: space-between;
-
+   
    position: absolute;
    z-index: 999;
    top: 0;
@@ -119,7 +119,7 @@ nav .menu-icon:hover, nav .menu-close-icon:hover {
 
 
 /* HEADER ---------------------------------------------------- HEADER */
-header {
+/* header {
    background-image: url(https://images.unsplash.com/photo-1536318431364-5cc762cfc8ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80);
    background-repeat: no-repeat;
    background-position: center;
@@ -128,6 +128,21 @@ header {
    display: flex;
    justify-content: center;
 }
+
+.item-count {
+   position: absolute;
+   top: 15px; 
+   right: 10px; 
+   background-color: red; 
+   color: white;
+   border-radius: 50%; 
+   width: 20px; 
+   height: 20px; 
+   text-align: center;
+   font-size: 12px; 
+   line-height: 20px; 
+   font-weight: bold; 
+} */
 
 /* HERO ---------------------------------------------------- HERO */
 .hero {
@@ -391,6 +406,10 @@ a {
    margin: 0 5px;
 }
 
+.new-arrivals .btns span {
+cursor: pointer;
+}
+
 
 /* NEWSLETTER ---------------------------------------------------- NEWSLETTER */
 .newsletter {
@@ -564,6 +583,15 @@ aside .copyright {
 
 /* MEDIA QUERIES ---------------------------------------------------- MEDIA QUERIES */
 @media (max-width: 690px) {
+   /* HEADER */
+   nav.expanded-menu-container .cartIcon {
+      margin-left: 11rem;
+      font-size: 1.2rem;
+   }
+   nav.expanded-menu-container .item-count {
+      right: 65px; 
+   }
+   
    /* before HEADER */
    nav ul.links {
       display: none;

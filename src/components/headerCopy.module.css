@@ -1,0 +1,85 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: greenyellow;
+  padding: 2rem;
+}
+
+h1 {
+  background-color: blueviolet;
+}
+
+ul {
+  background-color: blueviolet;
+  display: flex;
+  gap: 1rem;
+}
+
+.itemCount {
+  /* the number of products in cart must be absolute and the parent element must be relative */
+  /* this way this element can follow the parent element */
+  position: absolute;
+  top: -18px; 
+  right: -18px; 
+  background-color: red; 
+  color: white;
+  border-radius: 50%; 
+  width: 20px; 
+  height: 20px; 
+  text-align: center;
+  font-size: 12px; 
+  line-height: 20px; 
+  font-weight: bold; 
+}
+
+
+/* HAMBURGER MENU ---------------------------------------------------- HAMBURGER MENU */
+nav.hamburgerLinks {
+  position: absolute;
+  top: 101.5px;
+  right: 0;
+  width: 100%;
+  height: fit-content;
+  z-index: 99;
+}
+
+ul.hamburgerMenu {
+  display: none;
+  text-align: center;
+  background-color: lightslategray;
+  /* padding: 100% 0; */
+  /* width: 100%; */
+}
+
+.hamburgerMenu a {
+  font-size: 1.5rem;
+}
+
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
+}
+
+
+
+@media (max-width: 690px) {
+ 
+  /* before HEADER */
+  nav.mainLinks{
+     display: none;
+  }
+  nav :last-child {
+    display: block;
+  }
+
+  /* HEADER */
+  .container-hero h1 {
+     font-size: 1.5rem;
+  }
+  .container-links-menu.active {
+     display: block;
+  }
+}

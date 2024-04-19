@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons'
 
-const Header = () => {
+const Header = ({ cartItemsAmount }) => {
   const [showMenu, setShowMenu] = useState(false)
   const [screenSize, setScreenSize] = useState(0)
   const handleMenu = () => setShowMenu(!showMenu)
@@ -21,11 +21,26 @@ const Header = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/cart"><FontAwesomeIcon icon={faCartShopping} /> Cart</Link></li>
+          <li className="cartIcon">
+            <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} />
+              {cartItemsAmount > 0 && <span className="item-count">{cartItemsAmount}</span>}
+            </Link>
+          </li>
         </ul>
         {screenSize < 690 &&
           <>
-            {!showMenu && <FontAwesomeIcon icon={faBars} className="menu-icon" onClick={handleMenu} />}
+            {/* in small screen, menu hamburguer and cart icons are shown */}
+            {!showMenu &&
+              <>
+                <Link to="/cart" className="cartIcon"><FontAwesomeIcon icon={faCartShopping} />
+                  {cartItemsAmount > 0 && <span className="item-count">{cartItemsAmount}</span>}
+                </Link>
+                <FontAwesomeIcon icon={faBars} className="menu-icon" onClick={handleMenu} />
+              </>
+            }
+            {showMenu && <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} />
+              {cartItemsAmount > 0 && <span className="item-count">{cartItemsAmount}</span>}
+            </Link>}
             {showMenu && <FontAwesomeIcon icon={faXmark} className="menu-close-icon" onClick={handleMenu} />}
           </>
         }

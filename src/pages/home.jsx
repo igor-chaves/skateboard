@@ -95,7 +95,7 @@ const Home = () => {
                 {/* conferir a aula abaixo para fazer o resto de forma correta */}
                 {/* https://www.youtube.com/watch?v=pdyAEHi5ei8 */}
                 <div className="btns">
-                  <Link to="cart" onClick={() => addToLocalForage(id, name, price)}> Add to cart</Link>
+                  <span to="cart" onClick={() => addToLocalForage(id, name, price)}> Add to cart</span>
                 </div>
               </div>
             )}
