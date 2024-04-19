@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import localforage from "localforage"
 import "./cart.css"
-import { Link } from "react-router-dom"
 
 const Cart = () => {
   const [cart, setCart] = useState([])
@@ -52,7 +54,7 @@ const Cart = () => {
                 </div>
 
                 <button className="remove-button" onClick={() => deleteItems(id)}>
-                  <img src="./public/deleteIcon.svg" alt="delete button" />
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </div>
             </div>
@@ -71,7 +73,6 @@ const Cart = () => {
         <div className="right-column">
           <div className="title">
             <span>Subtotal</span>
-            {/* <span>$148</span> */}
             <span>${subTotalSum()}</span>
           </div>
           <div className="title">

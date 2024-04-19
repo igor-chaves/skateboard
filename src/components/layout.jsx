@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
-import { useEffect, useState } from "react"
 
 const Layout = () => {
   const [cartItemsAmount, setCartItemsAmount] = useState(10)
