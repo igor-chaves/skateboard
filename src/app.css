@@ -8,7 +8,7 @@
   list-style-type: none;
   font-family: "Roboto";
   /* this webkit makes iPhone users experience look the same as in a Desktop */
-  /* -webkit-appearance: none; */
+  -webkit-appearance: none;
 }
 
 html {
@@ -593,5 +593,18 @@ aside .copyright {
   }
   .newsletter .container a {
     width: 50%;
+  }
+
+  /* COLLECTIONS */
+  .collections h2 {
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+  .collections .btns {
+    margin-top: 2rem;
+  }
+  .collections .btns a {
+    display: flex;
+    padding: 1rem 1.75rem;
   }
 }
