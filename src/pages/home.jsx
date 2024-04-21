@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
-import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import { products } from "../productsList.json"
 import localforage from "localforage"
 
@@ -34,11 +34,13 @@ const Home = () => {
           <div className="container">
             <div>
               <div className="card">
+                <FontAwesomeIcon icon={faShieldHalved} />
                 <h2>Easy Return Policy</h2>
                 <p>Our store provide a 30 days return policy for all of our customers.</p>
               </div>
 
               <div className="card">
+                <FontAwesomeIcon icon={faTruckFast} />
                 <h2>Free Shipping</h2>
                 <p>Buy products over $150 and get free express home delivery offers.</p>
               </div>
@@ -46,11 +48,13 @@ const Home = () => {
 
             <div>
               <div className="card">
+                <FontAwesomeIcon icon={faBuildingLock} />
                 <h2>Secure Payment</h2>
                 <p>Your protection is our priority! We guarantee peace of mind for our customers.</p>
               </div>
 
               <div className="card">
+                <FontAwesomeIcon icon={faChartSimple} />
                 <h2>Best Quality</h2>
                 <p>Exceptional products carefully chosen to please your preferences.</p>
               </div>

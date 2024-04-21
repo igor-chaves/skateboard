@@ -8,7 +8,7 @@
   list-style-type: none;
   font-family: "Roboto";
   /* this webkit makes iPhone users experience look the same as in a Desktop */
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 html {
@@ -25,60 +25,6 @@ a {
   flex-direction: column;
   justify-content: center;
 }
-
-/* TOP MENU ---------------------------------------------------- TOP MENU */
-/* nav.expanded-menu-container {
-  background-color: white;
-  border-bottom: 1px solid black;
-  width: 1200px;
-  height: 85px;
-  padding: 15px 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-} */
-
-/* HAMBURGER MENU ---------------------------------------------------- HAMBURGER MENU */
-/* .hamburger-menu-container {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  align-self: center;
-  width: 100%;
-  z-index: 998;
-}
-
-.hamburger-menu {
-  display: none;
-  gap: 2rem;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  background-color: lightslategray;
-  padding: 100% 0;
-  width: 100%;
-}
-
-.hamburger-menu a {
-  font-size: 1.5rem;
-}
-
-.show {
-  display: flex;
-}
-.hide {
-  display: none;
-} */
 
 /* HEADER ---------------------------------------------------- HEADER */
 header {
@@ -192,17 +138,27 @@ header {
 
 .featured .container .card {
   background-color: #ffcc80;
-  padding: 30px 15px;
+  padding: 25px 15px;
   width: 250px;
-  height: 150px;
+  height: auto;
 
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .featured .container .card h2 {
-  margin-bottom: 15px;
+  margin: 15px 0;
+}
+
+.featured .container .card p {
+  text-align: center;
+}
+
+.featured .container .card > svg {
+  color: #ff9800;
+  font-size: 50px;
 }
 
 /* COLLECTIONS ---------------------------------------------------- COLLECTIONS */
@@ -251,7 +207,7 @@ header {
 
 .collections .btns {
   display: flex;
-  margin: 0 -4px;
+  margin: 40px -4px 0;
 }
 
 .collections .text a {

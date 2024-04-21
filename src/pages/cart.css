@@ -135,6 +135,7 @@
 }
 
 .remove-button {
+  color: black;
   cursor: pointer;
   display: inline-flex;
   align-items: center;

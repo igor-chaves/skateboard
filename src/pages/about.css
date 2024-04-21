@@ -9,6 +9,7 @@
 
 h2.title-about {
   display: flex;
+  align-items: center;
   justify-content: center;
 
   background-color: #ffcc80;
