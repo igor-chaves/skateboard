@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
-import { products } from "../productsList.json"
 import localforage from "localforage"
+import { useEffect, useState } from "react"
+// https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
 const Home = () => {
-
-  const addToLocalForage = async (id, name, price) => {
+  const addToLocalForage = async (id, title, price, images) => {
     // gets items from localforage first, if it's empty, return []
     const cartItems = await localforage.getItem('cartItems') || []
-    // for every new interaction push a new item
-    // verify if the same item was pushed, if so add +1 to a property called "quantity"
-    cartItems.push({ "id": id, "product": name, "price": price })
+    // for every new interaction push a new item or +1 if exists already
+    cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 0 })
     await localforage.setItem('cartItems', cartItems)
+
   }
+
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then(result => result.json())
+      .then(data => setProducts(data))
+  }, [])
 
   return (
     <>
@@ -87,18 +93,20 @@ const Home = () => {
           <p>Look at the latest collection that we offer</p>
 
           <div className="container">
-            {products.map(({ id, name, price }) =>
+            {products && products.map(({ id, title, price, images }) =>
               <div className="card" key={id}>
-                <img src={`./deck${id}.jpg`} alt="product image" />
-                <h3>{name}</h3>
+                {/* criar uma api fake para imagens de SKATE */}
+                <img src={images[0]} alt="product image" />
+                <h3>{title}</h3>
                 <p>${price}.00</p>
                 {/* jogar essas infos para o local forage */}
                 {/* mostrar o numero de produtos do cart no icone de cart na page home */}
                 {/* ao abrir o cart, verificar se tem algo no local forage e gerar dinamicamente os cards baseado nisso */}
                 {/* conferir a aula abaixo para fazer o resto de forma correta */}
                 {/* https://www.youtube.com/watch?v=pdyAEHi5ei8 */}
-                <div className="btns">
-                  <span to="cart" onClick={() => addToLocalForage(id, name, price)}> Add to cart</span>
+                <div className="btns" onClick={() => addToLocalForage(id, title, price, images)}>
+                  {/* nao esta clicando nas beiradas, talvez por causa do padding: ARRUMAR */}
+                  <span to="cart"> Add to cart</span>
                 </div>
               </div>
             )}
