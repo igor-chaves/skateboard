@@ -18,6 +18,7 @@ const getProductsLoader = async () => {
 
 const Home = () => {
   const [products, setProducts] = useState([])
+  const first8Products = products.slice(0, 8)
 
   //get list of items from API and add on products state
   useEffect(() => {
@@ -119,7 +120,7 @@ const Home = () => {
           <p>Look at the latest collection that we offer</p>
 
           <div className="container">
-            {products && products.map(({ id, title, price, images }) =>
+            {first8Products && first8Products.map(({ id, title, price, images }) =>
               <div className="card" key={id}>
                 <img src={images[0]} alt="product image" />
                 <h3>{title}</h3>
