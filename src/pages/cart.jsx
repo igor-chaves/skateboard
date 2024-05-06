@@ -45,7 +45,7 @@ const Cart = () => {
   }
 
   const subTotalSum = () => cart.reduce((acc, currentItem) => acc + (currentItem.price * currentItem.quantity), 0)
-  const totalSum = (taxes) => cart.reduce((acc, currentItem) => acc + currentItem.price, taxes)
+  const totalSum = (taxes) => cart.reduce((acc, currentItem) => acc + (currentItem.price * currentItem.quantity), taxes)
 
   return (
     <div className="main-container">
