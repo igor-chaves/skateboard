@@ -302,11 +302,10 @@ header {
 
 .new-arrivals .container .card {
   width: 250px;
-  /* padding: 5px; */
   border: 1px solid #ffcc80;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -319,7 +318,9 @@ header {
 }
 
 .new-arrivals .container .card h3 {
-  margin: 10px 0 5px;
+  margin: 10px;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .new-arrivals .container .card p {
@@ -333,7 +334,9 @@ header {
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   margin: 10px 0 20px 0;
+  cursor: pointer;
 }
+
 .new-arrivals .btns:hover {
   color: #ff9800;
 }

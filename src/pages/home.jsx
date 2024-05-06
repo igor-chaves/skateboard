@@ -1,42 +1,52 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
-import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import localforage from "localforage"
 import { useEffect, useState } from "react"
 import { useLoaderData } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 // https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
+
+//a ideia de usar loader é eliminar o useeffect
+// para isso tenho que declarar essa funcao em outro lugar, e chamar apenas o resultado
+// para dentro do `const apiProducts = useLoaderData()` abaixo, dentro de Home().
+// fazer depois
 const getProductsLoader = async () => {
   const products = await fetch("https://api.escuelajs.co/api/v1/products")
   return products.json()
 }
 
-const igorMsg = async () => {
-  return await localforage.getItem('cartItems')
-}
-
 const Home = () => {
-  const apiProducts = useLoaderData()
-  console.log(apiProducts)
-
-
-
-
-  const addToLocalForage = async (id, title, price, images) => {
-    // gets items from localforage first, if it's empty, return []
-    const cartItems = await localforage.getItem('cartItems') || []
-    // for every new interaction push a new item or +1 if exists already
-    cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 0 })
-    await localforage.setItem('cartItems', cartItems)
-
-  }
-
   const [products, setProducts] = useState([])
+
+  //get list of items from API and add on products state
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/products")
       .then(response => response.json())
       .then(data => setProducts(data))
   }, [])
+
+  //talvez usar para reduzir numero de props
+  const apiProducts = useLoaderData()
+
+  const addToLocalForage = async (id, title, price, images) => {
+    // get items from localforage first, if it's empty return []
+    const cartItems = await localforage.getItem('cartItems') || []
+    let isInCart = false
+
+    //check if each item has same id, if yes set isInCart to true
+    cartItems.forEach(prev => {
+      if (prev?.id === id) { isInCart = true }
+    })
+
+    // if the current item has not the same id, it means is not in car and therefore is added
+    if (!isInCart) {
+      cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 1 })
+    }
+
+    //update the localforage with the new items added
+    await localforage.setItem('cartItems', cartItems)
+  }
 
   return (
     <>
@@ -111,17 +121,10 @@ const Home = () => {
           <div className="container">
             {products && products.map(({ id, title, price, images }) =>
               <div className="card" key={id}>
-                {/* criar uma api fake para imagens de SKATE */}
                 <img src={images[0]} alt="product image" />
                 <h3>{title}</h3>
                 <p>${price}.00</p>
-                {/* jogar essas infos para o local forage */}
-                {/* mostrar o numero de produtos do cart no icone de cart na page home */}
-                {/* ao abrir o cart, verificar se tem algo no local forage e gerar dinamicamente os cards baseado nisso */}
-                {/* conferir a aula abaixo para fazer o resto de forma correta */}
-                {/* https://www.youtube.com/watch?v=pdyAEHi5ei8 */}
                 <div className="btns" onClick={() => addToLocalForage(id, title, price, images)}>
-                  {/* nao esta clicando nas beiradas, talvez por causa do padding: ARRUMAR */}
                   <span to="cart"> Add to cart</span>
                 </div>
               </div>
@@ -218,4 +221,4 @@ const Home = () => {
   )
 }
 
-export { Home, getProductsLoader, igorMsg }
+export { Home, getProductsLoader }

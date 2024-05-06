@@ -1,33 +1,30 @@
+import { useCart } from "./layout"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import localforage from "localforage"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
-  const [showMenu, setShowMenu] = useState(false)
   const [screenSize, setScreenSize] = useState(0)
+  const [showMenu, setShowMenu] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // get state's value from context created in LAYOUT.JSX
+  const { cart } = useCart()
+
+  const cartLength = cart.length
+  console.log("amount", cartLength)
+
+
+  const handleMenu = () => setShowMenu(!showMenu)
+  const toggleMenu = () => setIsMenuOpen(prev => !prev)
+
+  // open/close menu hamburger base on window size
   useEffect(() => {
     window.addEventListener("resize", () => setScreenSize(window.innerWidth))
     if (screenSize > 600) setShowMenu(false)
   }, [screenSize])
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const toggleMenu = () => setIsMenuOpen(prev => !prev)
-  const handleMenu = () => setShowMenu(!showMenu)
-
-
-  // localforage.getItem('cartItems').then(function (cartItems) { console.log(cartItems) })
-  // const pegarArray = async () => {
-  //   const myLocalforage = await localforage.getItem('cartItems')
-  //   return myLocalforage
-  // }
-  // const aaa = pegarArray
-  // console.log(pegarArray)
-
-
-  console.log()
   return (
     <header>
       <div className="headerContainer">
@@ -43,7 +40,7 @@ const Header = () => {
             <li><Link onClick={handleMenu} to="/">Home</Link></li>
             <li><Link onClick={handleMenu} to="/about">About</Link></li>
             <li><Link onClick={handleMenu} to="/contact">Contact</Link></li>
-            <li><Link onClick={handleMenu} to="/cart">Cart <span>sss</span></Link></li>
+            <li><Link onClick={handleMenu} to="/cart">Cart <span>{cartLength}</span></Link></li>
           </ul>
         </nav>
       </div>

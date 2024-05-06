@@ -1,19 +1,19 @@
-import { Link, useLoaderData } from "react-router-dom"
+import "./cart.css"
+import localforage from "localforage"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { useCart } from "../components/layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons'
-import localforage from "localforage"
-import "./cart.css"
 
 const Cart = () => {
-  // nao lembro o que fazer com isso. Talvez usar isso ao inves de state para simplificar
-  const myMsg = useLoaderData()
-  console.log(myMsg)
-
   const [cart, setCart] = useState([])
+  console.log(cart.map(item => item ? "yes" : "no"))
+  // const { cart, setCart } = useCart()
 
   useEffect(() => { getItems() }, [])
 
+  // arrumar esta parte, tirar o console.log e ver o que colocar no lugar
   const getItems = async () => {
     const items = await localforage.getItem("cartItems")
     items ? setCart(items) : console.log("carrinho vazio")
