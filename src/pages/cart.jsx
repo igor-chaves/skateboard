@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons'
@@ -6,14 +6,16 @@ import localforage from "localforage"
 import "./cart.css"
 
 const Cart = () => {
+  // nao lembro o que fazer com isso. Talvez usar isso ao inves de state para simplificar
+  const myMsg = useLoaderData()
+  console.log(myMsg)
+
   const [cart, setCart] = useState([])
-  const [quantity, setQuantity] = useState("")
 
   useEffect(() => { getItems() }, [])
 
   const getItems = async () => {
     const items = await localforage.getItem("cartItems")
-
     items ? setCart(items) : console.log("carrinho vazio")
   }
 
@@ -27,10 +29,10 @@ const Cart = () => {
   const decrement = async (id) => {
     const cartItems = await localforage.getItem("cartItems")
     const updatedCart = cartItems.map(item => item.id === id
-      ? { ...item, quantity: item.quantity - 1 }
+      ? { ...item, quantity: item.quantity <= 0 ? item.quantity : item.quantity - 1 }
       : item)
-    localforage.setItem('cartItems', updatedCart) //update forage
-    setCart(updatedCart) //update state
+    localforage.setItem('cartItems', updatedCart)
+    setCart(updatedCart)
   }
 
   const increment = async (id) => {
@@ -42,27 +44,15 @@ const Cart = () => {
     setCart(updatedCart)
   }
 
-  const updateQuantity = async (e, id) => {
-    const newQuantity = e.target.value
-    const cartItems = await localforage.getItem("cartItems")
-    const updatedCart = cartItems.map(item => item.id === id
-      ? { ...item, quantity: +newQuantity }
-      : item)
-    localforage.setItem('cartItems', updatedCart)
-    setQuantity(newQuantity)
-    setCart(updatedCart)
-  }
-
-  const subTotalSum = () => cart.reduce((acc, currentItem) => acc + currentItem.price, 0)
+  const subTotalSum = () => cart.reduce((acc, currentItem) => acc + (currentItem.price * currentItem.quantity), 0)
   const totalSum = (taxes) => cart.reduce((acc, currentItem) => acc + currentItem.price, taxes)
-
 
   return (
     <div className="main-container">
       {/* list of products column */}
       <div className="column-container">
         {cart.length > 0
-          ? cart.map(({ id, title, price, images }) => (
+          ? cart.map(({ id, title, price, images, quantity }) => (
             <div className="product-card" key={id}>
               <div className="product-content">
                 <div className="img-container">
@@ -85,10 +75,7 @@ const Cart = () => {
 
                 <div className="quantity-btns">
                   <button onClick={() => decrement(id)}><FontAwesomeIcon icon={faLessThan} /></button>
-                  <input type="text" inputMode="numeric" pattern="[0-9]" max="99" placeholder="0"
-                    value={quantity}
-                    onChange={(e) => updateQuantity(e, id)}>
-                  </input>
+                  <span>{quantity}</span>
                   <button onClick={() => increment(id)}><FontAwesomeIcon icon={faGreaterThan} /></button>
                 </div>
 

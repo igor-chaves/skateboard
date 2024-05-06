@@ -3,9 +3,25 @@ import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import localforage from "localforage"
 import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router-dom"
 // https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
+const getProductsLoader = async () => {
+  const products = await fetch("https://api.escuelajs.co/api/v1/products")
+  return products.json()
+}
+
+const igorMsg = async () => {
+  return await localforage.getItem('cartItems')
+}
+
 const Home = () => {
+  const apiProducts = useLoaderData()
+  console.log(apiProducts)
+
+
+
+
   const addToLocalForage = async (id, title, price, images) => {
     // gets items from localforage first, if it's empty, return []
     const cartItems = await localforage.getItem('cartItems') || []
@@ -18,7 +34,7 @@ const Home = () => {
   const [products, setProducts] = useState([])
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/products")
-      .then(result => result.json())
+      .then(response => response.json())
       .then(data => setProducts(data))
   }, [])
 
@@ -202,4 +218,4 @@ const Home = () => {
   )
 }
 
-export { Home }
+export { Home, getProductsLoader, igorMsg }

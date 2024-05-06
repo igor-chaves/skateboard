@@ -178,17 +178,9 @@
   transition: background-color 0.15s ease;
 }
 
-.quantity-btns input {
-  border: none;
+.quantity-btns span {
+  width: 30px;
   text-align: center;
-  width: 50px;
-  padding: 5px 0;
-  height: 2.25rem;
-
-  font-size: 1rem;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  outline: black;
 }
 
 .empty-cart {
