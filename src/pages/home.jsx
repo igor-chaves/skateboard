@@ -1,4 +1,6 @@
 import localforage from "localforage"
+import { Link } from "react-router-dom"
+
 import { useEffect, useState } from "react"
 import { useLoaderData } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -33,6 +35,8 @@ const Home = () => {
   const addToLocalForage = async (id, title, price, images) => {
     // get items from localforage first, if it's empty return []
     const cartItems = await localforage.getItem('cartItems') || []
+    let lastAddedItem = await localforage.getItem('lastAddedItem') || []
+
     let isInCart = false
 
     //check if each item has same id, if yes set isInCart to true
@@ -47,6 +51,11 @@ const Home = () => {
 
     //update the localforage with the new items added
     await localforage.setItem('cartItems', cartItems)
+
+
+    //get only the last item added to cart
+    lastAddedItem = [{ "id": id, "title": title, "price": price, "images": images, "quantity": 1 }]
+    await localforage.setItem('lastAddedItem', lastAddedItem)
   }
 
   return (
@@ -62,7 +71,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <!-- DESTAQUES --> */}
+        {/* <!-- featured --> */}
         <section className="featured">
           <div className="container">
             <div>
@@ -126,7 +135,8 @@ const Home = () => {
                 <h3>{title}</h3>
                 <p>${price}.00</p>
                 <div className="btns" onClick={() => addToLocalForage(id, title, price, images)}>
-                  <span to="cart"> Add to cart</span>
+                  {/* <span to="cart">Add to cart</span> */}
+                  <Link to="/add-to-cart">Add to cart</Link>
                 </div>
               </div>
             )}

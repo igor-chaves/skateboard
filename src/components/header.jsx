@@ -13,7 +13,7 @@ const Header = () => {
   const { cart } = useCart()
 
   const cartLength = cart.length
-  console.log("amount", cartLength)
+  // console.log("amount", cartLength)
 
 
   const handleMenu = () => setShowMenu(!showMenu)
