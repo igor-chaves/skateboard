@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom"
+
 import * as yup from "yup"
 import "./contact.css"
 
 const Contact = () => {
   // get current URL rote
   const navigate = useNavigate()
+
   // very basic validation
   const handleForm = async e => {
     e.preventDefault()
@@ -26,13 +28,9 @@ const Contact = () => {
     // check if formData is valid according to formSchema rules
     const isValid = await formSchema.isValid(formData)
 
-    if (isValid) {
-      alert("We received your message and will be in touch soon.")
-      // change URL to / rote, the homepage
-      navigate("/")
-    } else {
-      alert("Please fill all the fields correctly")
-    }
+    // navigate("/") = change URL to / rote (the homepage)
+    if (isValid) { alert("We received your message and will be in touch soon."); navigate("/") }
+    else alert("Please fill all the fields correctly")
   }
 
   return (

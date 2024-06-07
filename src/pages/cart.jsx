@@ -1,46 +1,33 @@
 import "./cart.css"
 import localforage from "localforage"
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { useCart } from "../components/layout"
+import { useContext } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons'
+import { CartContext } from "../contexts/cartContext"
 
 const Cart = () => {
-  const [cart, setCart] = useState([])
-  console.log(cart.map(item => item ? "yes" : "no"))
-  // const { cart, setCart } = useCart()
-
-  useEffect(() => { getItems() }, [])
-
-  // arrumar esta parte, tirar o console.log e ver o que colocar no lugar
-  const getItems = async () => {
-    const items = await localforage.getItem("cartItems")
-    items ? setCart(items) : console.log("carrinho vazio")
-  }
+  const { cart, setCart } = useContext(CartContext)
 
   const deleteItems = async (id) => {
-    const items = await localforage.getItem("cartItems")
-    const updatedItems = items.filter(item => item.id !== id)
-    await localforage.setItem('cartItems', updatedItems)
-    setCart(updatedItems)
+    const updatedCart = cart.filter(item => item.id !== id)
+    await localforage.setItem('cartItems', updatedCart)
+    setCart(updatedCart)
   }
 
   const decrement = async (id) => {
-    const cartItems = await localforage.getItem("cartItems")
-    const updatedCart = cartItems.map(item => item.id === id
+    const updatedCart = cart.map(item => item.id === id
       ? { ...item, quantity: item.quantity <= 0 ? item.quantity : item.quantity - 1 }
       : item)
-    localforage.setItem('cartItems', updatedCart)
+    await localforage.setItem('cartItems', updatedCart)
     setCart(updatedCart)
   }
 
   const increment = async (id) => {
-    const cartItems = await localforage.getItem("cartItems")
-    const updatedCart = cartItems.map(item => item.id === id
+    const updatedCart = cart.map(item => item.id === id
       ? { ...item, quantity: item.quantity + 1 }
       : item)
-    localforage.setItem('cartItems', updatedCart)
+    await localforage.setItem('cartItems', updatedCart)
     setCart(updatedCart)
   }
 

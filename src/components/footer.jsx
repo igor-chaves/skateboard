@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHouse, faPhone } from '@fortawesome/free-solid-svg-icons'
 
-
 const Footer = () => {
   return (
     <>

@@ -1,6 +1,6 @@
-import { useCart } from "./layout"
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { CartContext } from "../contexts/cartContext"
+import { useState, useEffect, useContext } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,12 +9,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // get state's value from context created in LAYOUT.JSX
-  const { cart } = useCart()
-
-  const cartLength = cart.length
-  // console.log("amount", cartLength)
-
+  const { cart } = useContext(CartContext)
 
   const handleMenu = () => setShowMenu(!showMenu)
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
@@ -40,7 +35,7 @@ const Header = () => {
             <li><Link onClick={handleMenu} to="/">Home</Link></li>
             <li><Link onClick={handleMenu} to="/about">About</Link></li>
             <li><Link onClick={handleMenu} to="/contact">Contact</Link></li>
-            <li><Link onClick={handleMenu} to="/cart">Cart <span>{cartLength}</span></Link></li>
+            <li><Link onClick={handleMenu} to="/cart">Cart <span>{cart.length}</span></Link></li>
           </ul>
         </nav>
       </div>

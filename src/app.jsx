@@ -1,7 +1,7 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
 
 import { Layout } from "./components/layout"
-import { Home, getProductsLoader } from "./pages/home"
+import { Home } from "./pages/home"
 import { About } from "./pages/about"
 import { Contact } from "./pages/contact"
 import { Cart } from "./pages/cart"
@@ -11,7 +11,7 @@ import { AddedToCart } from "./pages/add-to-cart"
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} loader={getProductsLoader} />
+      <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cart" element={<Cart />} />

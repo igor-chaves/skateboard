@@ -1,22 +1,11 @@
 import localforage from "localforage"
 import { Link } from "react-router-dom"
-
 import { useEffect, useState } from "react"
-import { useLoaderData } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 // https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
-
-//a ideia de usar loader é eliminar o useeffect
-// para isso tenho que declarar essa funcao em outro lugar, e chamar apenas o resultado
-// para dentro do `const apiProducts = useLoaderData()` abaixo, dentro de Home().
-// fazer depois
-const getProductsLoader = async () => {
-  const products = await fetch("https://api.escuelajs.co/api/v1/products")
-  return products.json()
-}
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -29,9 +18,6 @@ const Home = () => {
       .then(data => setProducts(data))
   }, [])
 
-  //talvez usar para reduzir numero de props
-  const apiProducts = useLoaderData()
-
   const addToLocalForage = async (id, title, price, images) => {
     // get items from localforage first, if it's empty return []
     const cartItems = await localforage.getItem('cartItems') || []
@@ -40,18 +26,13 @@ const Home = () => {
     let isInCart = false
 
     //check if each item has same id, if yes set isInCart to true
-    cartItems.forEach(prev => {
-      if (prev?.id === id) { isInCart = true }
-    })
+    cartItems.forEach(prev => { if (prev?.id === id) { isInCart = true } })
 
     // if the current item has not the same id, it means is not in car and therefore is added
-    if (!isInCart) {
-      cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 1 })
-    }
+    if (!isInCart) cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 1 })
 
     //update the localforage with the new items added
     await localforage.setItem('cartItems', cartItems)
-
 
     //get only the last item added to cart
     lastAddedItem = [{ "id": id, "title": title, "price": price, "images": images, "quantity": 1 }]
@@ -232,4 +213,4 @@ const Home = () => {
   )
 }
 
-export { Home, getProductsLoader }
+export { Home }

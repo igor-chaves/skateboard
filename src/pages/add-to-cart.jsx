@@ -21,7 +21,7 @@ const AddedToCart = () => {
       <div className="column-container">
 
         <h1><FontAwesomeIcon icon={faCircleCheck} color="green" /> Item added to cart successfully</h1>
-        {last.map(item =>
+        {last?.map(item =>
 
           <div key={item.id} className="empty-cart">
             <div className="image-container">
