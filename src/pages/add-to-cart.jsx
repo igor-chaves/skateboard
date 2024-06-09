@@ -1,35 +1,26 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import localforage from "localforage"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleCheck, faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons'
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import "./add-to-cart.css"
+import { CartContext } from "../contexts/cartContext"
 
 const AddedToCart = () => {
-  const [last, setLast] = useState([])
-
-  const lastItem = async () => {
-    const items = await localforage.getItem("lastAddedItem")
-    setLast(items)
-  }
-
-  useEffect(() => { lastItem() }, [])
-  console.log(last)
+  const { lastItem } = useContext(CartContext)
 
   return (
     <div className="lastItem-container">
       <div className="column-container">
 
         <h1><FontAwesomeIcon icon={faCircleCheck} color="green" /> Item added to cart successfully</h1>
-        {last?.map(item =>
-
+        {lastItem?.map(item =>
           <div key={item.id} className="empty-cart">
             <div className="image-container">
               <div className="product-image">
                 <img src={item.images[0]} alt="product image" className="product-img" />
               </div>
             </div>
-
+            
             <div className="product-infos">
               <h3 className="product-title">{item.title}</h3>
               <p className="price">${item.price.toFixed(2)}</p>

@@ -6,15 +6,15 @@ const CartContext = createContext()
 // everything inside CartProvider will be available to children components
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
+  const [lastItem, setLastItem] = useState([])
 
   const getItems = async () => {
     const cartItems = await localforage.getItem("cartItems")
     cartItems && setCart(cartItems)
   }
-
   useEffect(() => { getItems() }, [])
 
-  return <CartContext.Provider value={{ cart, setCart, getItems }}>{children}</CartContext.Provider>
+  return <CartContext.Provider value={{ cart, setCart, lastItem, setLastItem, getItems }}>{children}</CartContext.Provider>
 }
 
 export { CartContext, CartProvider }

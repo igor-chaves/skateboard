@@ -1,17 +1,18 @@
 import localforage from "localforage"
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { CartContext } from "../contexts/cartContext"
+import { useContext, useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 // https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
-
 const Home = () => {
+  const { setCart, setLastItem } = useContext(CartContext)
   const [products, setProducts] = useState([])
   const first8Products = products.slice(0, 8)
 
-  //get list of items from API and add on products state
+  // get a list of items from API and add on products state
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/products")
       .then(response => response.json())
@@ -21,22 +22,21 @@ const Home = () => {
   const addToLocalForage = async (id, title, price, images) => {
     // get items from localforage first, if it's empty return []
     const cartItems = await localforage.getItem('cartItems') || []
-    let lastAddedItem = await localforage.getItem('lastAddedItem') || []
+    const lastAddedItem = [{ id, title, price, images, quantity: 1 }]
 
-    let isInCart = false
+    // check if any item has same id, if yes receives TRUE
+    const isInCart = cartItems.some(prev => prev?.id === id)
 
-    //check if each item has same id, if yes set isInCart to true
-    cartItems.forEach(prev => { if (prev?.id === id) { isInCart = true } })
+    // if the current item has not the same id, it means is not in cart and therefore is added
+    if (isInCart === false) cartItems.push({ id, title, price, images, quantity: 1 })
 
-    // if the current item has not the same id, it means is not in car and therefore is added
-    if (!isInCart) cartItems.push({ "id": id, "title": title, "price": price, "images": images, "quantity": 1 })
-
-    //update the localforage with the new items added
+    // update the new item added to cart on localforage and in state
     await localforage.setItem('cartItems', cartItems)
+    setCart(cartItems)
 
-    //get only the last item added to cart
-    lastAddedItem = [{ "id": id, "title": title, "price": price, "images": images, "quantity": 1 }]
+    // update the last item added to cart on localforage and in state
     await localforage.setItem('lastAddedItem', lastAddedItem)
+    setLastItem(lastAddedItem)
   }
 
   return (
@@ -116,7 +116,6 @@ const Home = () => {
                 <h3>{title}</h3>
                 <p>${price}.00</p>
                 <div className="btns" onClick={() => addToLocalForage(id, title, price, images)}>
-                  {/* <span to="cart">Add to cart</span> */}
                   <Link to="/add-to-cart">Add to cart</Link>
                 </div>
               </div>

@@ -10,7 +10,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const { cart } = useContext(CartContext)
-
   const handleMenu = () => setShowMenu(!showMenu)
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
@@ -35,7 +34,9 @@ const Header = () => {
             <li><Link onClick={handleMenu} to="/">Home</Link></li>
             <li><Link onClick={handleMenu} to="/about">About</Link></li>
             <li><Link onClick={handleMenu} to="/contact">Contact</Link></li>
-            <li><Link onClick={handleMenu} to="/cart">Cart <span>{cart.length}</span></Link></li>
+            <li><Link onClick={handleMenu} to="/cart"><FontAwesomeIcon icon={faCartShopping} />
+              <span>{cart.length}</span></Link>
+            </li>
           </ul>
         </nav>
       </div>
