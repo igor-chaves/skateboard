@@ -493,7 +493,7 @@ footer .container {
   flex-wrap: wrap;
   justify-content: space-between;
   flex: 1;
-  gap: 2rem;
+  gap: 40px 0;
 }
 
 footer .container .card {
