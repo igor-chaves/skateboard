@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
+import { isCSSRequest } from "vite"
 // https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
 const Home = () => {
@@ -27,8 +28,15 @@ const Home = () => {
     // check if any item has same id, if yes receives TRUE
     const isInCart = cartItems.some(prev => prev?.id === id)
 
+
+    // CODIGO GERADO PELO CHATGPT
+    // TESTAR QUANDO O NPM RUN DEV VOLTAR A FUNCIONAR
+    if (isInCart) {
+      const item = cartItems.find(item => item.id === id)
+      item ? item.quantity += 1 : cartItems.push({ id, title, price, images, quantity: 1 })
+    }
     // if the current item has not the same id, it means is not in cart and therefore is added
-    if (isInCart === false) cartItems.push({ id, title, price, images, quantity: 1 })
+    // if (isInCart === false) cartItems.push({ id, title, price, images, quantity: 1 })
 
     // update the new item added to cart on localforage and in state
     await localforage.setItem('cartItems', cartItems)

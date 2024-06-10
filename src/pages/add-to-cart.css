@@ -4,6 +4,10 @@
   gap: 2rem;
 }
 
+.lastItem-container h1 {
+  text-align: center;
+}
+
 .lastItem-container button:hover {
   color: #ff9800;
   cursor: pointer;
