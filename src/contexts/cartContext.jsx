@@ -10,7 +10,7 @@ const CartProvider = ({ children }) => {
 
   const getItems = async () => {
     const cartItems = await localforage.getItem("cartItems")
-    cartItems && setCart(cartItems)
+    cartItems ? setCart(cartItems) : null
   }
   useEffect(() => { getItems() }, [])
 

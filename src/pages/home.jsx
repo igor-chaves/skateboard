@@ -113,7 +113,7 @@ const Home = () => {
           <p>Look at the latest collection that we offer</p>
 
           <div className="container">
-            {first8Products && first8Products.map(({ id, title, price, images }) =>
+            {first8Products ? first8Products.map(({ id, title, price, images }) =>
               <div className="card" key={id}>
                 <img src={images[0]} alt="product image" />
                 <h3>{title}</h3>
@@ -122,7 +122,7 @@ const Home = () => {
                   <Link to="/add-to-cart">Add to cart</Link>
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </section>
 
