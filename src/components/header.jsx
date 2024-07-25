@@ -34,7 +34,7 @@ const Header = () => {
             <li><Link onClick={handleMenu} to="/">Home</Link></li>
             <li><Link onClick={handleMenu} to="/about">About</Link></li>
             <li><Link onClick={handleMenu} to="/contact">Contact</Link></li>
-            <li><Link onClick={handleMenu} to="/cart">
+            <li><Link onClick={handleMenu} to="/cart" aria-label="cart">
               <div>
                 <FontAwesomeIcon icon={faCartShopping} className="cartIcon" />
                 {cart.length != 0 ? <span>{cart.length}</span> : ""}

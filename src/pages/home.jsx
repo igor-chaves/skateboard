@@ -153,10 +153,10 @@ const Home = () => {
             <p>Get connected with us on our social networks</p>
             <div>
               <ul className="icons">
-                <li><a href="#"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                <li><a href="#"><FontAwesomeIcon icon={faXTwitter} /></a></li>
-                <li><a href="#"><FontAwesomeIcon icon={faInstagram} /></a></li>
-                <li><a href="#"><FontAwesomeIcon icon={faLine} /></a></li>
+                <li><a href="#"><FontAwesomeIcon icon={faFacebookF} aria-label="facebook link" /></a></li>
+                <li><a href="#"><FontAwesomeIcon icon={faXTwitter} aria-label="x link" /></a></li>
+                <li><a href="#"><FontAwesomeIcon icon={faInstagram} aria-label="instagram link" /></a></li>
+                <li><a href="#"><FontAwesomeIcon icon={faLine} aria-label="line link" /></a></li>
               </ul>
             </div>
           </div>
