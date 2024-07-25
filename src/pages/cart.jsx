@@ -50,7 +50,7 @@ const Cart = () => {
 
                 <div className="product-infos">
                   <h3 className="product-title">{title}</h3>
-                  <p className="price">${price.toFixed(2)}</p>
+                  <p className="price">${price}</p>
                   <p className="product-code">Item #{id}</p>
                 </div>
               </div>

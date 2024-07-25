@@ -23,7 +23,7 @@ const AddedToCart = () => {
 
             <div className="product-infos">
               <h3 className="product-title">{item.title}</h3>
-              <p className="price">${item.price.toFixed(2)}</p>
+              <p className="price">${item.price}</p>
               <p className="product-code">Item #{item.id}</p>
             </div>
           </div>

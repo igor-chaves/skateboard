@@ -29,7 +29,7 @@ const Contact = () => {
     const isValid = await formSchema.isValid(formData)
 
     // navigate("/") = change URL to / rote (the homepage)
-    if (isValid) { alert("We received your message and will be in touch soon."); navigate("/") }
+    if (isValid) { alert("We received your message and will be in touch soon."), navigate("/") }
     else alert("Please fill all the fields correctly")
   }
 

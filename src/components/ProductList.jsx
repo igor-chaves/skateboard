@@ -18,10 +18,3 @@ const ProductList = ({ onProductsLoaded }) => {
 
 export { ProductList }
 
-// category
-// description
-// id
-// image
-// price
-// rating {count, rate}
-// title

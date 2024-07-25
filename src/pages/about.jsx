@@ -6,7 +6,7 @@ const About = () => {
       <main>
         <section className="main-about">
           <h2 className="title-about">About us</h2>
-          <p className="text-about">Welcome to SKATEBOARD., your ultimate destination for everything related to the world of skateboarding. Our passion for skateboarding goes beyond just tricks and maneuvers; it's a lifestyle that we celebrate and share with the global skateboarding community. Here's a bit more about who we are and what we stand for:</p>
+          <p className="text-about">Welcome to SKATEBOARD., your ultimate destination for everything related to the world of skateboarding. Our passion for skateboarding goes beyond just tricks and maneuvers, it's a lifestyle that we celebrate and share with the global skateboarding community. Here's a bit more about who we are and what we stand for:</p>
           <h2 className="title-about">Our Story</h2>
           <p className="text-about">Since our inception, we've been dedicated to promoting skateboarding culture in all its forms. Starting as a small local shop, we've expanded our operations to reach skateboarders nationwide, offering a wide range of products and services to cater to the needs of beginners and professionals alike.</p>
           <h2 className="title-about">Our Mission</h2>

@@ -6,7 +6,7 @@ import { ProductList } from "../components/ProductList"
 import { NewArrivals } from "../components/NewArrivals"
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
 
   return (
     <>
@@ -76,7 +76,6 @@ const Home = () => {
         {/* <!-- new arrivals --> */}
         <ProductList onProductsLoaded={setProducts} />
         <NewArrivals products={products} />
-
 
         {/* <!-- testimonials --> */}
         <section className="testimonials">
