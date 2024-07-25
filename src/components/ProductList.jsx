@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+// https://fakestoreapi.com/ API BEING CONSUMED TO GET PRODUCTS
 
 const ProductList = ({ onProductsLoaded }) => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
+    fetch("https://fakestoreapi.com/products")
       .then(response => response.json())
       .then(data => {
         setProducts(data)
@@ -17,3 +18,10 @@ const ProductList = ({ onProductsLoaded }) => {
 
 export { ProductList }
 
+// category
+// description
+// id
+// image
+// price
+// rating {count, rate}
+// title

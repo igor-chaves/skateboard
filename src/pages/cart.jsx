@@ -39,12 +39,12 @@ const Cart = () => {
       {/* list of products column */}
       <div className="column-container">
         {cart.length > 0
-          ? cart.map(({ id, title, price, images, quantity }) => (
+          ? cart.map(({ id, title, price, image, quantity }) => (
             <div className="product-card" key={id}>
               <div className="product-content">
                 <div className="img-container">
                   <div className="product-image">
-                    <img src={images} alt="product image" className="product-img" />
+                    <img src={image} alt="product image" className="product-img" />
                   </div>
                 </div>
 

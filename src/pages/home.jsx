@@ -4,7 +4,6 @@ import { faFacebookF, faInstagram, faLine, faXTwitter } from "@fortawesome/free-
 import { faStar, faStarHalf, faShieldHalved, faTruckFast, faBuildingLock, faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import { ProductList } from "../components/ProductList"
 import { NewArrivals } from "../components/NewArrivals"
-// https://fakeapi.platzi.com/ API BEING CONSUMED TO GET PRODUCTS
 
 const Home = () => {
   const [products, setProducts] = useState([]);

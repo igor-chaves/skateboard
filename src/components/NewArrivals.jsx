@@ -8,8 +8,8 @@ const NewArrivals = ({ products }) => {
       <h2>New Arrivals</h2>
       <p>Look at the latest collection that we offer</p>
       <div className="container">
-        {first8Products.map(({ id, title, price, images }) =>
-          <ProductCard key={id} id={id} title={title} price={price} images={images} />
+        {first8Products.map(({ id, title, price, image }) =>
+          <ProductCard key={id} id={id} title={title} price={price} image={image} />
         )}
       </div>
     </section>

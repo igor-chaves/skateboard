@@ -17,10 +17,10 @@ const AddedToCart = () => {
           <div key={item.id} className="empty-cart">
             <div className="image-container">
               <div className="product-image">
-                <img src={item.images[0]} alt="product image" className="product-img" />
+                <img src={item.image} alt="product image" className="product-img" />
               </div>
             </div>
-            
+
             <div className="product-infos">
               <h3 className="product-title">{item.title}</h3>
               <p className="price">${item.price.toFixed(2)}</p>
