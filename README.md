@@ -1,4 +1,15 @@
+E-commerce SKATEBOARD_
+
+An e-commerce site developed with React. This project is a frontend application designed to offer an easy and smooth shopping experience. It uses React for building the user interface, React Router for navigating between pages, and FontAwesome icons to add stylish icons. The project is also built with Vite to speed up development and make the site faster. Additionally, the site is responsive, meaning it works well on different devices and screen sizes.
+
+Technologies used:
+* React
+* React Router
+* FontAwesome Icons
+* Vite
+
 Live: https://skate-board.netlify.app/
 
-<img width="1425" alt="Screenshot 2024-01-28 at 15 54 30" src="https://github.com/igor-chaves/skateboard/assets/105141259/2fd915e7-ef8f-425b-a7a0-cc057f8a8cd2">
-<img width="714" alt="Screenshot 2024-01-28 at 15 52 10" src="https://github.com/igor-chaves/skateboard/assets/105141259/dc3b3986-467a-4eb5-9868-be8afc0e219d">
+<img width="1440" alt="Screenshot 2024-08-03 at 0 16 44" src="https://github.com/user-attachments/assets/df269e35-add0-4597-8b19-d44b472793af">
+<img width="1440" alt="Screenshot 2024-08-03 at 0 16 59" src="https://github.com/user-attachments/assets/6ba42254-8335-4fa3-a287-b993dfd8402d">
+<img width="1440" alt="Screenshot 2024-08-03 at 0 34 49" src="https://github.com/user-attachments/assets/a478a3d3-bb42-4450-a946-af07d4e0a357">
